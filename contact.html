@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – UyukaFinds</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #ede7da;
+      color: #5a7080;
+    }
+
+    /* ── Hero (compact) ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      max-height: 38vw;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      width: 100%;
+      display: block;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 90%;
+      pointer-events: none;
+    }
+
+    .hero-text .site-name {
+      font-family: "Times New Roman", "Hiragino Mincho ProN", Georgia, serif;
+      font-size: clamp(18px, 3.2vw, 38px);
+      font-weight: 400;
+      color: #3d6a85;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .hero-text h1 {
+      font-family: "Times New Roman", "Hiragino Mincho ProN", Georgia, serif;
+      font-size: clamp(26px, 5vw, 60px);
+      font-weight: 500;
+      color: #3d6a85;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-top: 4px;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+    }
+
+    /* ── Main ── */
+    .main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 20px 0;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(160, 205, 220, 0.45);
+      border-radius: 26px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 28px rgba(80, 130, 160, 0.12);
+    }
+
+    .contact-card p.intro {
+      font-size: clamp(14px, 1.8vw, 18px);
+      line-height: 1.8;
+      color: #5b6f7e;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: clamp(13px, 1.5vw, 15px);
+      font-weight: 600;
+      color: #5080a0;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-family: inherit;
+      color: #4a6070;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1.5px solid rgba(140, 190, 215, 0.55);
+      border-radius: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #80b8d0;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 140px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-family: inherit;
+      color: #4a6070;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1.5px solid rgba(140, 190, 215, 0.55);
+      border-radius: 14px;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2380b8d0' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    select:focus {
+      border-color: #80b8d0;
+      background-color: #fff;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 13px 36px;
+      background: linear-gradient(180deg, #6ab0d0 0%, #4e95b8 100%);
+      color: #fff;
+      font-size: clamp(14px, 1.7vw, 17px);
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(78, 149, 184, 0.3);
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.88;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 28px;
+      font-size: clamp(13px, 1.5vw, 15px);
+      color: #6898b0;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 48px;
+      position: relative;
+    }
+
+    .footer-img {
+      width: 100%;
+      display: block;
+    }
+
+    .footer-text {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .footer-copy {
+      font-size: clamp(11px, 1.3vw, 16px);
+      color: #7a9278;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 620px) {
+      .hero {
+        max-height: none;
+      }
+
+      .contact-card {
+        padding: 28px 20px;
+      }
+
+      .footer-text {
+        bottom: 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img class="hero-img" src="img/wave.png" alt="UyukaFinds">
+    <div class="hero-text">
+      <a class="site-name" href="index.html">UyukaFinds</a>
+      <h1>Contact</h1>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="contact-card">
+      <p class="intro">
+        ご質問・ご意見・不具合のご報告など、お気軽にお送りください。<br>
+        できる限り早くお返事いたします。
+      </p>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="app">お問い合わせのアプリ</label>
+          <select id="app" name="app">
+            <option value="">選択してください（任意）</option>
+            <option value="cocoaru">cocoaru</option>
+            <option value="other">その他 / ウェブサイトについて</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" placeholder="Yuka" required>
+        </div>
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">メッセージ</label>
+          <textarea id="message" name="message" placeholder="内容をご記入ください…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+
+      <a class="back-link" href="index.html">← ホームに戻る</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <img class="footer-img" src="img/footer.png" alt="">
+    <div class="footer-text">
+      <p class="footer-copy">© 2025 UyukaFinds. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
