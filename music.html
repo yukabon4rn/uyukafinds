@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music – UyukaFinds</title>
+  <meta name="description" content="登録販売者の成分名を歌で覚える「くすりのことば」シリーズ。聞き流して名前を頭に入れてから解説を見ると、入り方が変わります。">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- OGP（SNSシェア時のカード） -->
+  <meta property="og:title" content="くすりのことば – 登録販売者の成分を歌で覚える">
+  <meta property="og:description" content="聞き流して名前を頭に入れてから解説を見ると、入り方が変わります。">
+  <meta property="og:image" content="https://uyukafinds.com/img/album001.png">
+  <meta property="og:type" content="music.album">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #ede7da;
+      color: #5a7080;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero（compact・contact.htmlと同方式）── */
+    .hero {
+      position: relative;
+      width: 100%;
+      max-height: 38vw;
+      overflow: hidden;
+    }
+    .hero-img { width: 100%; display: block; }
+    .hero-text {
+      position: absolute;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 90%;
+      pointer-events: none;
+    }
+    .hero-text .site-name {
+      font-family: "Times New Roman", "Hiragino Mincho ProN", Georgia, serif;
+      font-size: clamp(18px, 3.2vw, 38px);
+      font-weight: 400;
+      color: #3d6a85;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+      text-decoration: none;
+      display: inline-block;
+      pointer-events: auto;
+    }
+    .hero-text h1 {
+      font-family: "Times New Roman", "Hiragino Mincho ProN", Georgia, serif;
+      font-size: clamp(26px, 5vw, 60px);
+      font-weight: 500;
+      color: #3d6a85;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-top: 4px;
+      text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+    }
+
+    /* ── Intro pitch ── */
+    .pitch {
+      max-width: 680px;
+      margin: 34px auto 0;
+      padding: 0 24px;
+      text-align: center;
+      font-size: clamp(14px, 1.9vw, 19px);
+      line-height: 1.9;
+      color: #5b6f7e;
+    }
+    .pitch strong { color: #4282a8; font-weight: 600; }
+
+    .wave-divider {
+      width: 82px; height: 16px;
+      margin: 22px auto 4px;
+      position: relative;
+    }
+    .wave-divider::before, .wave-divider::after {
+      content: ""; position: absolute; top: 2px;
+      width: 52%; height: 10px;
+      border-top: 3px solid #80b8d0; border-radius: 50%;
+    }
+    .wave-divider::before { left: 0; transform: rotate(-7deg); }
+    .wave-divider::after  { right: 0; transform: rotate(7deg); }
+
+    /* ── Album list ── */
+    .albums {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 22px 20px 0;
+    }
+
+    .album {
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(160, 205, 220, 0.45);
+      border-radius: 26px;
+      box-shadow: 0 6px 20px rgba(100, 160, 180, 0.12);
+      padding: 24px;
+      margin-bottom: 26px;
+    }
+
+    .album-head {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .album-art {
+      width: 150px; min-width: 150px; height: 150px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(70, 120, 160, 0.22);
+    }
+
+    .album-info { flex: 1; min-width: 0; }
+
+    .album-info h2 {
+      font-size: clamp(21px, 3.2vw, 30px);
+      font-weight: 500;
+      color: #4282a8;
+      letter-spacing: 0.02em;
+    }
+    .album-info .meta {
+      margin-top: 4px;
+      font-size: clamp(12px, 1.5vw, 15px);
+      color: #8a9aa6;
+    }
+    .album-info .topics {
+      margin-top: 10px;
+      font-size: clamp(12px, 1.6vw, 15px);
+      color: #6a7d88;
+      line-height: 1.7;
+    }
+
+    /* ── Spotify player ── */
+    .player {
+      margin-top: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(100,160,180,0.14);
+    }
+    .player iframe { display: block; width: 100%; border: 0; }
+
+    /* ── Store buttons ── */
+    .stores {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .store {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: clamp(12px, 1.5vw, 14px);
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform .12s ease, box-shadow .12s ease;
+      white-space: nowrap;
+    }
+    .store:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .store .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+    .store.apple   { background:#fff; color:#d8315b; border-color:#f0c4cf; }
+    .store.spotify { background:#fff; color:#1db954; border-color:#bce6c8; }
+    .store.amazon  { background:#fff; color:#0a9bc4; border-color:#bce4ef; }
+    .store.all     { background:#5180a0; color:#fff; }
+    .apple .dot   { background:#d8315b; }
+    .spotify .dot { background:#1db954; }
+    .amazon .dot  { background:#25d1da; }
+
+    .store.soon {
+      background: rgba(255,255,255,0.3);
+      border: 1px dashed rgba(140,190,210,0.6);
+      color: #9ab0bb;
+      cursor: default;
+    }
+    .store.soon:hover { transform: none; box-shadow: none; }
+
+    .album-note {
+      margin-top: 14px;
+      font-size: clamp(11px, 1.4vw, 13px);
+      color: #93a6b0;
+      line-height: 1.7;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      max-width: 820px;
+      margin: 6px auto 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .back-link a {
+      font-size: clamp(13px, 1.6vw, 16px);
+      color: #5180a0;
+      text-decoration: none;
+    }
+    .back-link a:hover { text-decoration: underline; }
+
+    /* ── Footer（index/contactと同方式・画像）── */
+    footer {
+      margin-top: 44px;
+      position: relative;
+    }
+    .footer-img { width: 100%; display: block; }
+    .footer-text {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .footer-links {
+      display: inline-flex; gap: 14px; align-items: center;
+      font-size: clamp(12px, 1.5vw, 18px);
+      margin-bottom: 4px;
+    }
+    .footer-links a { color: #5e8a68; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-copy { font-size: clamp(11px, 1.3vw, 16px); color: #7a9278; }
+
+    @media (max-width: 560px) {
+      .hero { max-height: none; }
+      .album-head { flex-direction: column; text-align: center; gap: 16px; }
+      .album-art { width: 190px; height: 190px; }
+      .stores { justify-content: center; }
+      .footer-text { bottom: 6%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img class="hero-img" src="img/wave.png" alt="UyukaFinds">
+    <div class="hero-text">
+      <a class="site-name" href="index.html">UyukaFinds</a>
+      <h1>Music</h1>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <p class="pitch">
+    Apple Music、Spotify ほか20以上のサービスで配信中。<br>
+    「uyukafinds」で検索してみてね🎵
+  </p>
+  <div class="wave-divider" aria-hidden="true"></div>
+
+  <!-- Albums -->
+  <main class="albums">
+
+    <!-- 001 -->
+    <article class="album">
+      <div class="album-info">
+        <h2>くすりのことば001</h2>
+        <p class="meta">12曲 ・ 2026.05.13</p>
+        <p class="topics">解熱鎮痛 / 眠気 / 鎮暈 / 小児鎮静 / 鎮咳去痰 / 口腔咽喉薬</p>
+      </div>
+
+      <!-- Spotify 埋め込みプレイヤー（コンパクト・ジャケット内蔵・試聴できる） -->
+      <div class="player">
+        <iframe src="https://open.spotify.com/embed/album/79FMLM983Xj0GQJHykXNa0?utm_source=site"
+                width="100%" height="152" frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+      </div>
+
+      <div class="stores">
+        <a class="store apple" href="https://music.apple.com/jp/album/6767939322?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Apple Music</a>
+        <a class="store spotify" href="https://open.spotify.com/intl-ja/album/79FMLM983Xj0GQJHykXNa0?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Spotify</a>
+        <a class="store amazon" href="https://music.amazon.co.jp/albums/B0GZQRMBMM?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Amazon Music</a>
+      </div>
+    </article>
+
+    <!-- 002 -->
+    <article class="album">
+      <div class="album-info">
+        <h2>くすりのことば002</h2>
+        <p class="meta">14曲 ・ 2026.05.17</p>
+        <p class="topics">胃の薬 / 腸の薬 / 胃腸鎮痛 / 強心 / 高コレステロール / 貧血</p>
+      </div>
+
+      <!-- Spotify 埋め込みプレイヤー -->
+      <div class="player">
+        <iframe src="https://open.spotify.com/embed/album/5koHG1vlX1H7tChazi92k8?utm_source=site"
+                width="100%" height="152" frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+      </div>
+
+      <div class="stores">
+        <a class="store apple" href="https://music.apple.com/jp/album/6768632921?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Apple Music</a>
+        <a class="store spotify" href="https://open.spotify.com/album/5koHG1vlX1H7tChazi92k8?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Spotify</a>
+        <a class="store amazon" href="https://music.amazon.co.jp/albums/B0H138FBSJ?utm_source=site" target="_blank" rel="noopener"><span class="dot"></span>Amazon Music</a>
+      </div>
+    </article>
+
+    <!-- 003 -->
+    <article class="album">
+      <div class="album-head">
+        <img class="album-art" src="img/album003.png" alt="くすりのことば003 ジャケット">
+        <div class="album-info">
+          <h2>くすりのことば003</h2>
+          <p class="meta">10曲 ・ 近日配信</p>
+          <p class="topics">泌尿器 / 婦人薬 / アレルギー / 鼻 / 眼科 / 皮膚</p>
+        </div>
+      </div>
+
+      <div class="stores">
+        <span class="store soon"><span class="dot" style="background:#9ab0bb"></span>Coming Soon</span>
+      </div>
+      <p class="album-note">配信開始後に試聴プレイヤーを追加します。</p>
+    </article>
+
+    <!-- 004 -->
+    <article class="album">
+      <div class="album-head">
+        <img class="album-art" src="img/album004.png" alt="くすりのことば004 ジャケット">
+        <div class="album-info">
+          <h2>くすりのことば004</h2>
+          <p class="meta">9曲 ・ 近日配信</p>
+          <p class="topics">痔の薬 / 歯・口中 / 滋養強壮 / 漢方生薬 / 公衆衛生</p>
+        </div>
+      </div>
+
+      <div class="stores">
+        <span class="store soon"><span class="dot" style="background:#9ab0bb"></span>Coming Soon</span>
+      </div>
+      <p class="album-note">配信開始後に試聴プレイヤーを追加します。</p>
+    </article>
+
+  </main>
+
+  <div class="back-link">
+    <a href="index.html">← UyukaFinds トップへ</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <img class="footer-img" src="img/footer.png" alt="">
+    <div class="footer-text">
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <span style="color:#9ab5a0;">/</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+      <p class="footer-copy">© 2026 UyukaFinds. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
