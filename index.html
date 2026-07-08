@@ -26,13 +26,14 @@
     .hero {
       position: relative;
       width: 100%;
-      max-height: 56vw; /* keep image from being too tall on wide screens */
       overflow: hidden;
     }
 
     .hero-img {
       width: 100%;
       display: block;
+      max-height: min(56vw, 480px); /* keep image from being too tall on wide screens */
+      object-fit: cover;
     }
 
     .hero-text {
@@ -47,7 +48,7 @@
 
     .hero-text h1 {
       font-family: "Times New Roman", "Hiragino Mincho ProN", Georgia, serif;
-      font-size: clamp(30px, 6.5vw, 80px);
+      font-size: clamp(30px, 6.5vw, 52px);
       font-weight: 500;
       color: #3d6a85;
       letter-spacing: 1px;
@@ -57,7 +58,7 @@
 
     .hero-text .tagline {
       margin-top: 6px;
-      font-size: clamp(12px, 2.2vw, 26px);
+      font-size: clamp(12px, 2.2vw, 18px);
       color: #5180a0;
       letter-spacing: 0.05em;
       text-shadow: 0 1px 6px rgba(255,255,255,0.55);
@@ -106,7 +107,7 @@
     }
 
     .feature-copy h2 {
-      font-size: clamp(28px, 5vw, 56px);
+      font-size: clamp(28px, 5vw, 34px);
       font-weight: 500;
       color: #4282a8;
       letter-spacing: 0.03em;
@@ -114,7 +115,7 @@
 
     .feature-copy p {
       margin-top: 10px;
-      font-size: clamp(14px, 1.9vw, 22px);
+      font-size: clamp(14px, 1.9vw, 16px);
       color: #5b6f7e;
       line-height: 1.78;
     }
@@ -125,7 +126,7 @@
     }
 
     .store-btn img {
-      height: clamp(36px, 5vw, 52px);
+      height: clamp(36px, 5vw, 46px);
       width: auto;
       display: block;
       border-radius: 10px;
@@ -138,7 +139,7 @@
     }
 
     .other h3 {
-      font-size: clamp(26px, 4.2vw, 46px);
+      font-size: clamp(26px, 4.2vw, 30px);
       font-weight: 500;
       color: #4e88a6;
       letter-spacing: 0.02em;
@@ -193,7 +194,7 @@
     }
 
     .mini-copy .name {
-      font-size: clamp(20px, 2.8vw, 34px);
+      font-size: clamp(20px, 2.8vw, 22px);
       font-weight: 500;
       color: #5aaa78;
       letter-spacing: 0.01em;
@@ -205,7 +206,7 @@
 
     .mini-copy p {
       margin-top: 6px;
-      font-size: clamp(12px, 1.5vw, 18px);
+      font-size: clamp(12px, 1.5vw, 14px);
       color: #6a7d88;
       line-height: 1.68;
     }
@@ -219,6 +220,8 @@
     .footer-img {
       width: 100%;
       display: block;
+      max-height: min(23vw, 260px);
+      object-fit: cover;
     }
 
     .footer-text {
@@ -235,7 +238,7 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 4px;
-      font-size: clamp(12px, 1.5vw, 18px);
+      font-size: clamp(12px, 1.5vw, 14px);
     }
 
     .footer-links a {
@@ -248,7 +251,7 @@
     }
 
     .footer-copy {
-      font-size: clamp(11px, 1.3vw, 16px);
+      font-size: clamp(11px, 1.3vw, 12px);
       color: #7a9278;
     }
 
@@ -263,7 +266,7 @@
     .mini-copy .name.coming-label {
       color: #90b8cc;
       letter-spacing: 0.06em;
-      font-size: clamp(16px, 2.4vw, 28px);
+      font-size: clamp(16px, 2.4vw, 19px);
     }
 
     .mini-app.coming-soon .mini-copy p {
@@ -272,7 +275,11 @@
 
     /* ── Responsive ── */
     @media (max-width: 620px) {
-      .hero {
+      .hero-img {
+        max-height: none;
+      }
+
+      .footer-img {
         max-height: none;
       }
 
