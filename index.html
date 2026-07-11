@@ -32,8 +32,9 @@
     .hero-img {
       width: 100%;
       display: block;
-      max-height: min(56vw, 480px); /* keep image from being too tall on wide screens */
+      max-height: min(56vw, 540px); /* keep image from being too tall on wide screens */
       object-fit: cover;
+      object-position: center 68%; /* bias crop so the sea stays visible on wide screens */
     }
 
     .hero-text {
